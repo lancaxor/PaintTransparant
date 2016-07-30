@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
 
 namespace PaingTransparant
 {
@@ -54,13 +55,18 @@ namespace PaingTransparant
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 var image = Image.FromFile(ofd.FileName);
-                this.transparant.BackgroundImage = image;
+                this.setImage(image);
+                
+            }
+        }
+        private void setImage(Image image)
+        {
+            this.transparant.BackgroundImage = image;
 
-                if (image.Height > 0 && image.Height < this.tbHeight.Maximum && image.Width < this.tbWidth.Maximum && image.Width > 0)
-                {
-                    this.countRatio(image.Width, image.Height);
-                    this.setTransparantSize(image.Width, image.Height);
-                }
+            if (image.Height > 0 && image.Height < this.tbHeight.Maximum && image.Width < this.tbWidth.Maximum && image.Width > 0)
+            {
+                this.countRatio(image.Width, image.Height);
+                this.setTransparantSize(image.Width, image.Height);
             }
         }
 
@@ -138,6 +144,24 @@ namespace PaingTransparant
             {
                 this.transparant.Show();
                 (sender as Button).Text = ">>";
+            }
+        }
+
+        private void btnLoadImage_Click(object sender, EventArgs e)
+        {
+            string url = tbImageUrl.Text;
+            try
+            {
+                var request = WebRequest.Create(url);
+                using (var response = request.GetResponse())
+                using (var stream = response.GetResponseStream())
+                {
+                    this.setImage(Bitmap.FromStream(stream));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

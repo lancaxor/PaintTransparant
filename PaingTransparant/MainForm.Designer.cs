@@ -37,6 +37,9 @@
             this.btnOpenFile = new System.Windows.Forms.Button();
             this.cbSaveProportions = new System.Windows.Forms.CheckBox();
             this.btnShowHideTransparant = new System.Windows.Forms.Button();
+            this.btnLoadImage = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbImageUrl = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.tbWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbOpacity)).BeginInit();
@@ -136,11 +139,40 @@
             this.btnShowHideTransparant.UseVisualStyleBackColor = true;
             this.btnShowHideTransparant.Click += new System.EventHandler(this.btnShowHideTransparant_Click);
             // 
+            // btnLoadImage
+            // 
+            this.btnLoadImage.Location = new System.Drawing.Point(324, 229);
+            this.btnLoadImage.Name = "btnLoadImage";
+            this.btnLoadImage.Size = new System.Drawing.Size(75, 23);
+            this.btnLoadImage.TabIndex = 9;
+            this.btnLoadImage.Text = "Load";
+            this.btnLoadImage.UseVisualStyleBackColor = true;
+            this.btnLoadImage.Click += new System.EventHandler(this.btnLoadImage_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 234);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Image URL:";
+            // 
+            // tbImageUrl
+            // 
+            this.tbImageUrl.Location = new System.Drawing.Point(82, 231);
+            this.tbImageUrl.Name = "tbImageUrl";
+            this.tbImageUrl.Size = new System.Drawing.Size(236, 20);
+            this.tbImageUrl.TabIndex = 11;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(413, 352);
+            this.ClientSize = new System.Drawing.Size(413, 317);
+            this.Controls.Add(this.tbImageUrl);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.btnLoadImage);
             this.Controls.Add(this.btnShowHideTransparant);
             this.Controls.Add(this.cbSaveProportions);
             this.Controls.Add(this.btnOpenFile);
@@ -176,5 +208,8 @@
         private System.Windows.Forms.Button btnOpenFile;
         private System.Windows.Forms.CheckBox cbSaveProportions;
         private System.Windows.Forms.Button btnShowHideTransparant;
+        private System.Windows.Forms.Button btnLoadImage;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tbImageUrl;
     }
 }
